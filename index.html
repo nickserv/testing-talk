@@ -49,7 +49,7 @@
 					<h2>What is software testing?</h2>
 					<ul>
 						<li>The process of verifying software to ensure it works as expected</li>
-						<li>
+						<li class="fragment">
 							Can be manual or automated
 							<ul>
 								<li>Whenever it is possible, automated testing is prefered because of its repeatability and ease of use.</li>
@@ -63,9 +63,9 @@
 					<h2>Why should I test?</h2>
 					<ul>
 						<li>To prove that your code satisfies requirements</li>
-						<li>To catch bugs faster, before software is out in the field</li>
-						<li>To have an unambiguous way of determining if a unit of code still works after it is modified (regression testing)</li>
-						<li>
+						<li class="fragment">To catch bugs faster, before software is out in the field</li>
+						<li class="fragment">To have an unambiguous way of determining if a unit of code still works after it is modified (regression testing)</li>
+						<li class="fragment">
 							To add flexibility and efficiency to your project's development
 							<ul>
 								<li>Continuous integration is a great example.</li>
@@ -78,8 +78,8 @@
 					<h2>Testing Methods</h2>
 					<ul>
 						<li>There are many testing methods that define what aspects of a system should be tested and how.</li>
-						<li>It is common for specific software projects to use multiple testing methods to cover different kinds of defects (bugs, performance issues, security vulnerabilities, etc.).</li>
-						<li>Many test frameworks and other testing tools are available for most popular testing methods.</li>
+						<li class="fragment">It is common for specific software projects to use multiple testing methods to cover different kinds of defects (bugs, performance issues, security vulnerabilities, etc.).</li>
+						<li class="fragment">Many test frameworks and other testing tools are available for most popular testing methods.</li>
 					</ul>
 				</section>
 
@@ -88,8 +88,8 @@
 						<h2>Unit Testing</h2>
 						<ul>
 							<li>The process of testing individual units of code separately from each other</li>
-							<li>By running unit tests, it is easier to isolate what units of code are to blame for bugs.</li>
-							<li>Unit tests are considered "white box" tests because they involve looking at the internals of an application's code and runtime.</li>
+							<li class="fragment">By running unit tests, it is easier to isolate what units of code are to blame for bugs.</li>
+							<li class="fragment">Unit tests are considered "white box" tests because they involve looking at the internals of an application's code and runtime.</li>
 						</ul>
 					</section>
 
@@ -97,16 +97,16 @@
 						<h2>What do we need to know to write a unit test?</h2>
 						<ul>
 							<li>The unit we are testing (usually a function or method)</li>
-							<li>The test cases we will create to prove the unit functions as expected
+							<li class="fragment">The test cases we will create to prove the unit functions as expected
 								<ul>
-									<li>
+									<li class="fragment">
 										Inputs
 										<ul>
 											<li>Equivalance classes: groups of inputs that should result in similar behaviors</li>
 											<li>Boundary cases: values on the edges of these classes</li>
 										</ul>
 									</li>
-									<li>Expected outputs and side effects</li>
+									<li class="fragment">Expected outputs and side effects</li>
 								</ul>
 							</li>
 						</ul>
@@ -116,8 +116,8 @@
 						<h2>Unit Testing Tips</h2>
 						<ul>
 							<li>Try to test with as many equivalance classes of inputs as possible.</li>
-							<li>Start by focusing on tests for individual methods and functions.</li>
-							<li>Share common setup between unit tests.</li>
+							<li class="fragment">Start by focusing on tests for individual methods and functions.</li>
+							<li class="fragment">Share common setup between unit tests.</li>
 						</ul>
 					</section>
 
@@ -129,13 +129,15 @@ def palindrome?(word)
   word == word.reverse
 end
 						</code></pre>
-						<h3>Test cases</h3>
-						<ul>
-							<li>When the word is empty, it should be a palindrome</li>
-							<li>When the word has one character, it should be a palindrome</li>
-							<li>When the word has multiple characters, we should ensure the right words are marked as palindromes</li>
-							<li>When the word is null, an error should be thrown</li>
-						</ul>
+						<div class="fragment">
+							<h3>Test cases</h3>
+							<ul>
+								<li>When the word is empty, it should be a palindrome</li>
+								<li class="fragment">When the word has one character, it should be a palindrome</li>
+								<li class="fragment">When the word has multiple characters, we should ensure the right words are marked as palindromes</li>
+								<li class="fragment">When the word is null, it should not be a palindrome</li>
+							</ul>
+						</div>
 					</section>
 				</section>
 
@@ -177,7 +179,6 @@ NoMethodError: undefined method `reverse' for nil:NilClass
 
 1 runs, 4 assertions, 0 failures, 1 errors, 0 skips
 						</code></pre>
-						<p>We now know that our code won’t work on any input type that doesn’t have the “reverse” method. However, our other test cases for strings all pass.</p>
 					</section>
 				</section>
 
@@ -221,14 +222,39 @@ end
 				</section>
 
 				<section>
+					<h2>Integration Testing</h2>
+					<ul>
+						<li>Multiple software modules are tested together to verify their communications with each other.</li>
+						<li class="fragment">Spies can be used to wrap interfaces and inspect what they are called with.</li>
+						<li class="fragment">Integration tests do not need to know the internals of the individual modules.</li>
+					</ul>
+				</section>
+
+				<section>
 					<section>
 						<h2>Acceptance Testing</h2>
 						<ul>
 							<li>The process of testing a program's features to ensure that they meet customer requirements</li>
-							<li>Acceptance tests give us a way to prove that software meets needs and works from a user's perspective.</li>
-							<li>Acceptance tests are considered "black box" tests because they simulate user actions without requiring access to an application's internals (however, they can still be automated).</li>
+							<li class="fragment">Acceptance tests give us a way to prove that software meets needs and works from a user's perspective.</li>
+							<li class="fragment">Acceptance tests are considered "black box" tests because they simulate user actions without requiring access to an application's internals (however, they can still be automated).</li>
 						</ul>
 					</section>
+				</section>
+
+				<section>
+					<h2>Smoke Testing</h2>
+					<ul>
+						<li>The process of performing quick checks to see if there are any basic problems with the code that would prevent it from running.</li>
+						<li class="fragment">Smoke testing is generally not enough for testing an entire application, though it can be useful at earlier phases of the testing process.</li>
+					</ul>
+					<div class="fragment">
+						<h3>Examples</h3>
+						<ul>
+							<li>Check if there are any compiler errors</li>
+							<li class="fragment">Check if the application launches</li>
+							<li class="fragment">Perform a request on an important API endpoint and assert that it returns a 200 (success)</li>
+						</ul>
+					</div>
 				</section>
 
 				<section>
@@ -236,8 +262,9 @@ end
 					<p>"Fake" objects that replace the real implementations of code</p>
 					<ul>
 						<li>Very useful for dealing with slow, unreliable, and hard to test code that you aren't testing directly.</li>
-						<li>Can make tests more flexible, but can also increase the amount of complexity in test setup.</li>
-						<li>Especially useful for services and HTTP requests.</li>
+						<li class="fragment">Can make tests more flexible, but can also increase the amount of complexity in test setup.</li>
+						<li class="fragment">Especially useful for services and HTTP requests.</li>
+						<li class="fragment">Example: Tests for a weather application that relies on a third party API.</li>
 					</ul>
 				</section>
 
@@ -246,28 +273,30 @@ end
 						<h2>Testing and Process</h2>
 						<ul>
 							<li>Depending on a project's process model and personal development practices, testing may happen after, during, or even before development.</li>
-							<li>Waiting to test until after all development is done (waterfall) can cause difficulties with integrating work and verifying if systems themselves or their depdendencies are broken.</li>
+							<li class="fragment">Waiting to test until after all development is done (waterfall) can cause difficulties with integrating work and verifying if systems themselves or their dependencies are broken.</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>Test Driven Development</h2>
 						<p>The process of writing test code before implementation code.</p>
-						<ol>
+						<ol class="fragment">
 							<li>Plan what you are going to implement.</li>
-							<li>Write tests (usually unit tests or acceptance tests) for what you will implement.</li>
-							<li>Run the tests. They should all fail because the implementations do not exist.</li>
-							<li>Write the implementation.</li>
-							<li>Run tests and ensure that the implementation's tests pass.</li>
-							<li>Rinse and repeat until all tests are passing.</li>
+							<li class="fragment">Write tests (usually unit tests or acceptance tests) for what you will implement.</li>
+							<li class="fragment">Run the tests (before implementing).</li>
+							<li class="fragment">Write the implementation.</li>
+							<li class="fragment">Run tests and ensure that the implementation's tests pass.</li>
+							<li class="fragment">Rinse and repeat until all tests are passing.</li>
 						</ol>
 					</section>
 
 					<section>
 						<h2>Behavioral Driven Development</h2>
 						<p>Similar to test driven development, but involving more process and abstraction. Tests (usually acceptance tests) are written to verify specific user stories as they are implemented.</p>
-						<h3>BDD Tools</h3>
-						<p>Test frameworks that focus on heirarchal specifications (like RSpec) or executable user stories (like Cucumber) are designed for and frequently used for BDD.</p>
+						<div class="fragment">
+							<h3>BDD Tools</h3>
+							<p>Test frameworks that focus on heirarchal specifications (like RSpec) or executable user stories (like Cucumber) are designed for and frequently used for BDD.</p>
+						</div>
 					</section>
 				</section>
 
